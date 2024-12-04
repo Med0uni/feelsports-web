@@ -24,6 +24,7 @@ const articles = {
     date: "22-01-2024",
     author: "محمد الأمين",
     readTime: "4 دقائق",
+    slug: "المساكني",
   },
   // Add more articles as needed
 };
@@ -43,7 +44,6 @@ export async function generateMetadata({
   };
 }
 
-// Asynchronous data fetching with params
 export async function generateStaticParams() {
   return Object.keys(articles).map((slug) => ({ slug }));
 }
