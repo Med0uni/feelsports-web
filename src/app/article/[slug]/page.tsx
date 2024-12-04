@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
 import { ChevronLeft, Share2, Clock, User } from "lucide-react";
 
 // Mock articles database (in a real app, this would come from a CMS or database)
@@ -26,6 +27,26 @@ const articles = {
   },
   // Add more articles as needed
 };
+
+type Params = {
+  slug: string;
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
+  const article = articles[params.slug as keyof typeof articles];
+  return {
+    title: article?.title || "Article Not Found",
+  };
+}
+
+// Asynchronous data fetching with params
+export async function generateStaticParams() {
+  return Object.keys(articles).map((slug) => ({ slug }));
+}
 
 export default async function ArticlePage({
   params,
