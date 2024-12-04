@@ -35,10 +35,6 @@ yarn-error.log
 # Windows specific files
 Thumbs.db
 
-# npm package lock files (optional, but often ignored in certain setups)
-package-lock.json
-yarn.lock
-
 # Other configuration files (if they contain sensitive data)
 *.pem
 *.key
