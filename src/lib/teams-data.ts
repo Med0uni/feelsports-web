@@ -5,14 +5,14 @@ export interface Team {
   slug: string;
   city: string;
   founded: string;
-  league?: string; // Optional field for the league
+  league?: string; 
 }
 
 const division1Teams = [
   {
     id: 1,
     name: "الترجي الرياضي",
-    logo: "/logos/est.png",
+    logo: "/assets/clubs/logos/normal/est.png",
     slug: "esperance",
     city: "تونس",
     founded: "1919",
@@ -21,7 +21,7 @@ const division1Teams = [
   {
     id: 2,
     name: "النادي الإفريقي",
-    logo: "/logos/ca.png",
+    logo: "/assets/clubs/logos/normal/ca.png",
     slug: "club-africain",
     city: "تونس",
     founded: "1920",
@@ -30,7 +30,7 @@ const division1Teams = [
   {
     id: 3,
     name: "النادي الصفاقسي",
-    logo: "/logos/css.png",
+    logo: "/assets/clubs/logos/normal/css.png",
     slug: "css",
     city: "صفاقس",
     founded: "1928",
@@ -39,7 +39,7 @@ const division1Teams = [
   {
     id: 4,
     name: "النجم الساحلي",
-    logo: "/logos/ess.png",
+    logo: "/assets/clubs/logos/normal/ess.png",
     slug: "ess",
     city: "سوسة",
     founded: "1925",
@@ -48,7 +48,7 @@ const division1Teams = [
   {
     id: 5,
     name: "الاتحاد المنستيري",
-    logo: "/logos/usm.png",
+    logo: "/assets/clubs/logos/normal/usmo.png",
     slug: "usm",
     city: "المنستير",
     founded: "1923",
@@ -57,7 +57,7 @@ const division1Teams = [
   {
     id: 6,
     name: "الملعب التونسي",
-    logo: "/logos/st.png",
+    logo: "/assets/clubs/logos/normal/st.png",
     slug: "st",
     city: "تونس",
     founded: "1921",
@@ -66,7 +66,7 @@ const division1Teams = [
   {
     id: 7,
     name: "اتحاد بن قردان",
-    logo: "/logos/usbg.png",
+    logo: "/assets/clubs/logos/normal/usbg.png",
     slug: "usbg",
     city: "بن قردان",
     founded: "1936",
@@ -75,7 +75,7 @@ const division1Teams = [
   {
     id: 8,
     name: "النادي البنزرتي",
-    logo: "/logos/cab.png",
+    logo: "/assets/clubs/logos/normal/cab.png",
     slug: "cab",
     city: "بنزرت",
     founded: "1928",
@@ -84,7 +84,7 @@ const division1Teams = [
   {
     id: 9,
     name: "مستقبل سليمان",
-    logo: "/logos/ms.png",
+    logo: "/assets/clubs/logos/normal/as.png",
     slug: "ms",
     city: "سليمان",
     founded: "1955",
@@ -93,7 +93,7 @@ const division1Teams = [
   {
     id: 10,
     name: "الأولمبي الباجي",
-    logo: "/logos/ob.png",
+    logo: "/assets/clubs/logos/normal/ob.png",
     slug: "ob",
     city: "باجة",
     founded: "1944",
@@ -102,7 +102,7 @@ const division1Teams = [
   {
     id: 11,
     name: "اتحاد تطاوين",
-    logo: "/logos/ust.png",
+    logo: "/assets/clubs/logos/normal/ust.png",
     slug: "ust",
     city: "تطاوين",
     founded: "1996",
@@ -111,7 +111,7 @@ const division1Teams = [
   {
     id: 12,
     name: "نجم المتلوي",
-    logo: "/logos/esm.png",
+    logo: "/assets/clubs/logos/normal/esm.png",
     slug: "esm",
     city: "المتلوي",
     founded: "1944",
@@ -120,7 +120,7 @@ const division1Teams = [
   {
     id: 13,
     name: "الترجي الجرجيسي",
-    logo: "/logos/asg.png",
+    logo: "/assets/clubs/logos/normal/esz.png",
     slug: "asg",
     city: "جرجيس",
     founded: "1947",
@@ -129,7 +129,7 @@ const division1Teams = [
   {
     id: 14,
     name: "مستقبل الرجيش",
-    logo: "/logos/emr.png",
+    logo: "/assets/clubs/logos/normal/ar.png",
     slug: "emr",
     city: "المهدية",
     founded: "1948",
@@ -168,7 +168,7 @@ const division2Teams = [
   {
     id: 18,
     name: "نادي حمام الأنف",
-    logo: "/logos/cshl.png",
+    logo: "/assets/clubs/logos/normal/cshl.png",
     slug: "cshl",
     city: "حمام الأنف",
     founded: "1944",
@@ -177,7 +177,7 @@ const division2Teams = [
   {
     id: 19,
     name: "مستقبل المرسى",
-    logo: "/logos/asm.png",
+    logo: "/assets/clubs/logos/normal/asm.png",
     slug: "asm",
     city: "المرسى",
     founded: "1939",
@@ -213,7 +213,7 @@ const division2Teams = [
   {
     id: 23,
     name: "الأولمبي للنقل",
-    logo: "/logos/ot.png",
+    logo: "/assets/clubs/logos/normal/cot.png",
     slug: "ot",
     city: "تونس",
     founded: "1961",

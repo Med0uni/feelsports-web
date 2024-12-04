@@ -64,12 +64,14 @@ const config = {
         footer: {
           bg: "hsl(var(--footer-bg))",
           border: "hsl(var(--footer-border))",
+          bottom: "hsl(var(--footer-bottom))",
         }
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        16: "16px",
       }
     },
   },

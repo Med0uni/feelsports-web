@@ -1,20 +1,27 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { Card } from './ui/card'
+import Image from "next/image";
+import Link from "next/link";
+import { Card } from "./ui/card";
 
 interface ArticleCardProps {
-  title: string
-  description: string
-  image: string
-  category: string
-  date: string
-  slug: string
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  date: string;
+  slug: string;
 }
 
-export function ArticleCard({ title, description, image, category, date, slug }: ArticleCardProps) {
+export function ArticleCard({
+  title,
+  description,
+  image,
+  category,
+  date,
+  slug,
+}: ArticleCardProps) {
   return (
     <Link href={`/article/${slug}`}>
-      <Card className="card-base card-hover group h-full overflow-hidden">
+      <Card className="card-base card-hover group rounded-16 border-0 h-full overflow-hidden">
         <div className="relative h-48 w-full">
           <Image
             src={image}
@@ -30,10 +37,14 @@ export function ArticleCard({ title, description, image, category, date, slug }:
             </span>
             <span className="text-text-tertiary">{date}</span>
           </div>
-          <h3 className="mb-2 line-clamp-2 text-lg font-bold text-text-primary">{title}</h3>
-          <p className="line-clamp-2 text-sm text-text-secondary">{description}</p>
+          <h3 className="mb-2 line-clamp-2 text-lg font-bold text-text-primary">
+            {title}
+          </h3>
+          <p className="line-clamp-2 text-sm text-text-secondary">
+            {description}
+          </p>
         </div>
       </Card>
     </Link>
-  )
+  );
 }

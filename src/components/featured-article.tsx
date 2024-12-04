@@ -1,20 +1,27 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { Card } from './ui/card'
+import Image from "next/image";
+import Link from "next/link";
+import { Card } from "./ui/card";
 
 interface FeaturedArticleProps {
-  title: string
-  description: string
-  image: string
-  category: string
-  date: string
-  slug: string
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  date: string;
+  slug: string;
 }
 
-export function FeaturedArticle({ title, description, image, category, date, slug }: FeaturedArticleProps) {
+export function FeaturedArticle({
+  title,
+  description,
+  image,
+  category,
+  date,
+  slug,
+}: FeaturedArticleProps) {
   return (
     <Link href={`/article/${slug}`}>
-      <Card className="group relative overflow-hidden rounded-lg border-0 bg-[#2a2a2a]">
+      <Card className="group relative overflow-hidden rounded-16 border-0 bg-[#2a2a2a]">
         <div className="relative h-[400px] w-full">
           <Image
             src={image}
@@ -36,5 +43,5 @@ export function FeaturedArticle({ title, description, image, category, date, slu
         </div>
       </Card>
     </Link>
-  )
+  );
 }

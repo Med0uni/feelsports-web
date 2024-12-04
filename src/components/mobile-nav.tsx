@@ -1,22 +1,26 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Menu, X, Search, Star, Heart } from "lucide-react"
-import Link from "next/link"
-import { SearchBar } from "./search-bar"
+import { useState } from "react";
+import { Menu, X, Search, Star, Heart } from "lucide-react";
+import Link from "next/link";
+import { SearchBar } from "./search-bar";
 
 const popularTeams = [
   { id: 1, name: "الترجي الرياضي", slug: "esperance", followed: true },
   { id: 2, name: "النادي الإفريقي", slug: "club-africain", followed: false },
   { id: 3, name: "النادي الصفاقسي", slug: "css", followed: false },
   { id: 4, name: "النجم الساحلي", slug: "ess", followed: true },
-]
+];
 
-export function MobileNav() {
-  const [isOpen, setIsOpen] = useState(false)
+interface MobileNavProps {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
   return (
     <div className="md:hidden">
+      {/* Button to open mobile menu */}
       <button
         onClick={() => setIsOpen(true)}
         className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary/50 text-foreground"
@@ -24,12 +28,20 @@ export function MobileNav() {
         <Menu className="h-5 w-5" />
       </button>
 
+      {/* Mobile navigation menu */}
       {isOpen && (
         <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm">
           <div className="container flex h-16 items-center justify-between border-b">
-            <Link href="/" className="font-bold text-primary" onClick={() => setIsOpen(false)}>
-              FeelSports
-            </Link>
+            {/* Conditionally render the logo */}
+            {!isOpen && (
+              <Link
+                href="/"
+                className="font-bold text-primary"
+                onClick={() => setIsOpen(false)}
+              >
+                FeelSports
+              </Link>
+            )}
             <button
               onClick={() => setIsOpen(false)}
               className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary/50"
@@ -37,18 +49,20 @@ export function MobileNav() {
               <X className="h-5 w-5" />
             </button>
           </div>
-          
+
           <div className="container py-4">
             <div className="mb-4">
               <SearchBar />
             </div>
 
             <div className="mb-6">
-              <h3 className="mb-2 text-sm font-medium text-muted-foreground">الفرق المفضلة</h3>
+              <h3 className="mb-2 text-sm font-medium text-muted-foreground">
+                الفرق المفضلة
+              </h3>
               <div className="space-y-2">
                 {popularTeams
-                  .filter(team => team.followed)
-                  .map(team => (
+                  .filter((team) => team.followed)
+                  .map((team) => (
                     <Link
                       key={team.id}
                       href={`/team/${team.slug}`}
@@ -89,5 +103,5 @@ export function MobileNav() {
         </div>
       )}
     </div>
-  )
+  );
 }

@@ -1,9 +1,8 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { StandingsTable } from "@/components/sidebar/standings-table"
-import { getAllTeams , division1Teams, division2Teams, type Team } from "@/lib/teams-data"
-
+import Image from "next/image";
+import Link from "next/link";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { StandingsTable } from "@/components/sidebar/standings-table";
+import { getAllTeams, type Team } from "@/lib/teams-data";
 
 function TeamCard({ team }: { team: Team }) {
   return (
@@ -15,8 +14,9 @@ function TeamCard({ team }: { team: Team }) {
         <Image
           src={team.logo}
           alt={team.name}
-          fill
-          className="object-contain p-2"
+          layout="fill" // Ensures the image fills the parent container
+          objectFit="contain" // Preserves aspect ratio within the container
+          className="p-2"
         />
       </div>
       <div>
@@ -28,7 +28,7 @@ function TeamCard({ team }: { team: Team }) {
         </p>
       </div>
     </Link>
-  )
+  );
 }
 
 function TeamsGrid({ teams }: { teams: Team[] | undefined }) {
@@ -42,7 +42,7 @@ function TeamsGrid({ teams }: { teams: Team[] | undefined }) {
 }
 
 export default function TeamsPage() {
-	const teams = getAllTeams();
+  const teams = getAllTeams();
 
   return (
     <main className="container py-8">
@@ -65,19 +65,21 @@ export default function TeamsPage() {
           </TabsList>
 
           <TabsContent value="division1" className="space-y-6">
-  <div className="rounded-xl border bg-card/50 p-4">
-    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-      <span className="flex h-2 w-2 rounded-full bg-primary"></span>
-      الرابطة المحترفة الأولى • موسم 2023/2024
-    </div>
-  </div>
-  <div className="grid gap-6 lg:grid-cols-[300px_1fr]">
-    <div className="space-y-6">
-      <StandingsTable />
-    </div>
-<TeamsGrid teams={teams.filter(team => team.league === "division1")} />
-  </div>
-</TabsContent>
+            <div className="rounded-xl border bg-card/50 p-4">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <span className="flex h-2 w-2 rounded-full bg-primary"></span>
+                الرابطة المحترفة الأولى • موسم 2023/2024
+              </div>
+            </div>
+            <div className="grid gap-6 lg:grid-cols-[300px_1fr]">
+              <div className="space-y-6">
+                <StandingsTable />
+              </div>
+              <TeamsGrid
+                teams={teams.filter((team) => team.league === "division1")}
+              />
+            </div>
+          </TabsContent>
 
           <TabsContent value="division2" className="space-y-6">
             <div className="rounded-xl border bg-card/50 p-4">
@@ -91,7 +93,9 @@ export default function TeamsPage() {
               <div className="space-y-6">
                 <StandingsTable />
               </div>
-<TeamsGrid teams={teams.filter(team => team.league === "division2")} />
+              <TeamsGrid
+                teams={teams.filter((team) => team.league === "division2")}
+              />
             </div>
           </TabsContent>
         </Tabs>

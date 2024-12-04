@@ -8,21 +8,21 @@
     --background: 0 0% 100%; /* Pure white */
     --foreground: 220 20% 15%;
 
-    --card: 0 0% 100%;
+    --card: 0, 0%, 95%;
     --card-foreground: 220 20% 15%;
-    
+
     --primary: 214 89% 52%; /* Our blue instead of FotMob's green */
     --primary-foreground: 0 0% 100%;
-    
+
     --secondary: 0 0% 96%; /* FotMob's exact light grey */
     --secondary-foreground: 220 20% 15%;
-    
+
     --muted: 0 0% 98%;
     --muted-foreground: 220 10% 45%;
-    
+
     --accent: 214 89% 52%;
     --accent-foreground: 0 0% 100%;
-    
+
     --border: 220 13% 91%;
     --input: 220 13% 91%;
     --ring: 214 89% 52%;
@@ -31,16 +31,16 @@
     --surface-0: 0 0% 100%; /* Main background */
     --surface-1: 0 0% 98%; /* Card background */
     --surface-2: 0 0% 96%; /* Secondary elements */
-    
-    --header-bg: 0 0% 100%;
+
+    --header-bg: 0 0% 93%;
     --header-border: 0 0% 92%;
-    
-    --footer-bg: 0 0% 98%;
+
+    --footer-bg: 0, 0%, 93%;
     --footer-border: 0 0% 92%;
-    
+
     --card-border: 0 0% 92%;
     --card-hover: 0 0% 96%;
-    
+
     --text-primary: 220 20% 15%;
     --text-secondary: 220 10% 45%;
     --text-tertiary: 220 10% 55%;
@@ -53,37 +53,41 @@
 
     --card: 225 25% 15%; /* FotMob's dark mode card color */
     --card-foreground: 0 0% 100%;
-    
+
     --primary: 214 89% 52%;
     --primary-foreground: 0 0% 100%;
-    
+
     --secondary: 223 27% 20%;
     --secondary-foreground: 0 0% 100%;
-    
+
     --muted: 223 27% 18%;
     --muted-foreground: 220 10% 65%;
-    
+
     --accent: 214 89% 52%;
     --accent-foreground: 0 0% 100%;
-    
+
     --border: 223 27% 20%;
     --input: 223 27% 20%;
     --ring: 214 89% 52%;
 
     /* FotMob-specific dark mode tokens */
-    --surface-0: 222 47% 11%; /* Main background */
+    --surface-0: 0 0% 5%; /* Main background */
     --surface-1: 225 25% 15%; /* Card background */
     --surface-2: 223 27% 20%; /* Secondary elements */
-    
+
     --header-bg: 225 25% 15%;
     --header-border: 223 27% 20%;
-    
-    --footer-bg: 225 25% 15%;
-    --footer-border: 223 27% 20%;
-    
+    /* footer */
+    --footer-bg: 0, 0%, 10%;
+    --footer-border: 0, 0%, 10%;
+    --footer-bottom: 223 27% 20%;
+    --footer-icon-color: 223 27% 20%;
+
+    --footer-divider: 0.5px solid rgba(255, 255, 255, 0.15); /* FotMob's footer divider */
+
     --card-border: 223 27% 20%;
     --card-hover: 223 27% 22%;
-    
+
     --text-primary: 0 0% 100%;
     --text-secondary: 220 10% 75%;
     --text-tertiary: 220 10% 65%;
@@ -91,7 +95,7 @@
 }
 
 @layer base {
-	.bg-card-hover {
+  .bg-card-hover {
     background-color: hsl(var(--card-hover));
   }
   .hover\:bg-card-hover:hover {
@@ -107,7 +111,7 @@
 
 @layer components {
   .card-base {
-    @apply bg-card text-card-foreground rounded-[4px] border-[1px] border-[#0000001a] dark:border-[#ffffff1a] transition-all duration-200;
+    @apply bg-card text-card-foreground rounded-[16px] border-[1px] border-[#0000001a] dark:border-[#ffffff39] transition-all duration-200;
   }
 
   .card-hover {
@@ -127,8 +131,8 @@
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap");
 
 body {
-  font-family: 'Noto Sans Arabic', sans-serif;
+  font-family: "Noto Sans Arabic", sans-serif;
 }

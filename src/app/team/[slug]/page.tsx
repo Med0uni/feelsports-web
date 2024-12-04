@@ -1,11 +1,18 @@
-"use client"
+"use client";
 
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faShieldHalved } from "@fortawesome/free-solid-svg-icons"
-import { getTeamBySlug } from "@/lib/teams-data"
-import Image from "next/image"
-import { notFound } from "next/navigation"
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShieldHalved } from "@fortawesome/free-solid-svg-icons";
+import { getTeamBySlug } from "@/lib/teams-data";
+import { SeasonStats } from "@/components/team/season-stats";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import { TeamForm } from "@/components/team/team-form";
+import { Squad } from "@/components/team/squad-section";
+import { StandingsTable } from "@/components/sidebar/standings-table";
+import { TeamStatsCard } from "@/components/team/team-stats-card";
+import { TeamNews } from "@/components/team/team-news";
+import { Transfers } from "@/components/team/transfers";
 
 const teamTabs = [
   { id: "overview", label: "نظرة عامة" },
@@ -16,13 +23,13 @@ const teamTabs = [
   { id: "transfers", label: "الانتقالات" },
   { id: "history", label: "التاريخ" },
   { id: "news", label: "الأخبار" },
-]
+];
 
 export default function TeamPage({ params }: { params: { slug: string } }) {
-  const team = getTeamBySlug(params.slug)
+  const team = getTeamBySlug(params.slug);
 
   if (!team) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -40,8 +47,8 @@ export default function TeamPage({ params }: { params: { slug: string } }) {
                   className="object-contain p-2"
                 />
               ) : (
-                <FontAwesomeIcon 
-                  icon={faShieldHalved} 
+                <FontAwesomeIcon
+                  icon={faShieldHalved}
                   className="h-8 w-8 text-primary"
                 />
               )}
@@ -70,90 +77,70 @@ export default function TeamPage({ params }: { params: { slug: string } }) {
               ))}
             </TabsList>
 
-            {/* Tab Content */}
-            <div className="container py-6">
-              <TabsContent value="overview">
-                <div className="rounded-lg border border-card-border bg-card p-6">
-                  <div className="space-y-4">
-                    <h2 className="text-lg font-bold">معلومات عن النادي</h2>
-                    <div className="grid gap-2 text-sm">
-                      <div className="flex justify-between border-b border-card-border py-2">
-                        <span className="text-muted-foreground">تاريخ التأسيس</span>
-                        <span>{team.founded}</span>
-                      </div>
-                      <div className="flex justify-between border-b border-card-border py-2">
-                        <span className="text-muted-foreground">المدينة</span>
-                        <span>{team.city}</span>
-                      </div>
-                      <div className="flex justify-between border-b border-card-border py-2">
-                        <span className="text-muted-foreground">المسابقة</span>
-                        <span>{team.league}</span>
-                      </div>
-                    </div>
-                  </div>
+            <TabsContent value="overview">
+              <div className="grid gap-6 lg:grid-cols-[1fr_300px]">
+                <div className="space-y-6">
+                  <TeamForm />
+                  <StandingsTable />
+                  <TeamStatsCard />
+                  <TeamNews />
                 </div>
-              </TabsContent>
+                <div>
+                  <SeasonStats />
+                </div>
+              </div>
+            </TabsContent>
 
-              <TabsContent value="table">
-                <div className="rounded-lg border border-card-border bg-card p-6">
-                  <p className="text-center text-muted-foreground">
-                    جدول الترتيب قريباً
-                  </p>
-                </div>
-              </TabsContent>
+            <TabsContent value="table">
+              <div className="rounded-lg border border-card-border bg-card p-6">
+                <p className="text-center text-muted-foreground">
+                  جدول الترتيب قريباً
+                </p>
+              </div>
+            </TabsContent>
 
-<TabsContent value="fixtures">
-                <div className="rounded-lg border border-card-border bg-card p-6">
-                  <p className="text-center text-muted-foreground">
-                    جدول المباريات قريباً
-                  </p>
-                </div>
-              </TabsContent>
+            <TabsContent value="fixtures">
+              <div className="rounded-lg border border-card-border bg-card p-6">
+                <p className="text-center text-muted-foreground">
+                  جدول المباريات قريباً
+                </p>
+              </div>
+            </TabsContent>
 
-              <TabsContent value="squad">
-                <div className="rounded-lg border border-card-border bg-card p-6">
-                  <p className="text-center text-muted-foreground">
-                    قائمة اللاعبين قريباً
-                  </p>
-                </div>
-              </TabsContent>
+            <TabsContent value="squad">
+              <Squad />
+            </TabsContent>
 
-              <TabsContent value="stats">
-                <div className="rounded-lg border border-card-border bg-card p-6">
-                  <p className="text-center text-muted-foreground">
-                    الإحصائيات قريباً
-                  </p>
-                </div>
-              </TabsContent>
+            <TabsContent value="stats">
+              <div className="rounded-lg border border-card-border bg-card p-6">
+                <p className="text-center text-muted-foreground">
+                  الإحصائيات قريباً
+                </p>
+              </div>
+            </TabsContent>
 
-              <TabsContent value="transfers">
-                <div className="rounded-lg border border-card-border bg-card p-6">
-                  <p className="text-center text-muted-foreground">
-                    الانتقالات قريباً
-                  </p>
-                </div>
-              </TabsContent>
+            <TabsContent value="transfers">
+              <Transfers />
+            </TabsContent>
 
-              <TabsContent value="history">
-                <div className="rounded-lg border border-card-border bg-card p-6">
-                  <p className="text-center text-muted-foreground">
-                    التاريخ قريباً
-                  </p>
-                </div>
-              </TabsContent>
+            <TabsContent value="history">
+              <div className="rounded-lg border border-card-border bg-card p-6">
+                <p className="text-center text-muted-foreground">
+                  التاريخ قريباً
+                </p>
+              </div>
+            </TabsContent>
 
-              <TabsContent value="news">
-                <div className="rounded-lg border border-card-border bg-card p-6">
-                  <p className="text-center text-muted-foreground">
-                    الأخبار قريباً
-                  </p>
-                </div>
-              </TabsContent>
-            </div>
+            <TabsContent value="news">
+              <div className="rounded-lg border border-card-border bg-card p-6">
+                <p className="text-center text-muted-foreground">
+                  الأخبار قريباً
+                </p>
+              </div>
+            </TabsContent>
           </Tabs>
         </div>
       </div>
     </main>
-  )
+  );
 }
-
