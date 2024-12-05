@@ -29,7 +29,7 @@ const articl = [
   // Add more articles as needed
 ];
 
-export async function generateMetadata({
+/*export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
@@ -140,3 +140,4 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
     </main>
   );
 }
+*/
