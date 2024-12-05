@@ -36,7 +36,7 @@ type Params = {
 export async function generateMetadata({
   params,
 }: {
-  params: Params;
+  params: { slug: string };
 }): Promise<Metadata> {
   const article = articles[params.slug as keyof typeof articles];
   return {
