@@ -4,8 +4,8 @@ import { Metadata } from "next";
 import { ChevronLeft, Share2, Clock, User } from "lucide-react";
 
 // Mock articles database (in a real app, this would come from a CMS or database)
-const articles = {
-  "msakni-return-to-esperance": {
+const articl = [
+  {
     title: "انتقال يوسف المساكني إلى الترجي: فصل جديد في مسيرته",
     description:
       "بعد فترة من المفاوضات، يوسف المساكني يعود إلى ناديه السابق الترجي في صفقة مثيرة",
@@ -27,29 +27,25 @@ const articles = {
     slug: "المساكني",
   },
   // Add more articles as needed
-};
-
-type PageProps = {
-  params: {
-    slug: string;
-  };
-};
+];
 
 export async function generateMetadata({
   params,
-}: PageProps): Promise<Metadata> {
-  const article = articles[params.slug as keyof typeof articles];
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const article = articl.find((a) => a.slug === params.slug);
   return {
     title: article?.title || "Article Not Found",
   };
 }
 
 export async function generateStaticParams() {
-  return Object.keys(articles).map((slug) => ({ slug }));
+  return Object.keys(articl).map((slug) => ({ slug }));
 }
 
-export default function ArticlePage({ params }: PageProps) {
-  const article = articles[params.slug as keyof typeof articles];
+export default function ArticlePage({ params }: { params: { slug: string } }) {
+  const article = articl[params.slug as keyof typeof articl];
 
   if (!article) {
     return (
