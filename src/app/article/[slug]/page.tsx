@@ -29,15 +29,15 @@ const articles = {
   // Add more articles as needed
 };
 
-type Params = {
-  slug: string;
+type PageProps = {
+  params: {
+    slug: string;
+  };
 };
 
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
+}: PageProps): Promise<Metadata> {
   const article = articles[params.slug as keyof typeof articles];
   return {
     title: article?.title || "Article Not Found",
@@ -48,11 +48,7 @@ export async function generateStaticParams() {
   return Object.keys(articles).map((slug) => ({ slug }));
 }
 
-export default async function ArticlePage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default function ArticlePage({ params }: PageProps) {
   const article = articles[params.slug as keyof typeof articles];
 
   if (!article) {
