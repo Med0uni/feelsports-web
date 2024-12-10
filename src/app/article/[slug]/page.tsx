@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { ChevronLeft, Share2, Clock, User } from "lucide-react";
 
 // Mock articles database (in a real app, this would come from a CMS or database)
-/*
+
 const articl = [
   {
     title: "انتقال يوسف المساكني إلى الترجي: فصل جديد في مسيرته",
@@ -142,6 +142,10 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   );
 }
 */
+
+export async function generateStaticParams() {
+  return Object.keys(articl).map((slug) => ({ slug }));
+}
 
 export default function ArticlePage() {
   return (
