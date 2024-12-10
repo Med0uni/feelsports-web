@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { ChevronLeft, Share2, Clock, User } from "lucide-react";
 
 // Mock articles database (in a real app, this would come from a CMS or database)
+/*
 const articl = [
   {
     title: "انتقال يوسف المساكني إلى الترجي: فصل جديد في مسيرته",
