@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { StandingsTable } from "@/components/sidebar/standings-table";
-import { getAllTeams, type Team } from "@/lib/teams-data";
+import { type Team } from "@/lib/teams-data";
+import { getAllTeams } from "@/lib/teams";
 
 function TeamCard({ team }: { team: Team }) {
   return (

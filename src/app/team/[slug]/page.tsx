@@ -30,7 +30,7 @@ export default async function TeamPage({
 }: {
   params: { slug: string };
 }) {
-  const team = await getTeamBySlug(params.slug);
+  const team = getTeamBySlug(params.slug);
 
   if (!team) {
     notFound();
