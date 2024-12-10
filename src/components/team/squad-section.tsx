@@ -218,7 +218,7 @@ function SquadSection({ title, players, isCoach }: SquadSectionProps) {
 export function Squad() {
   return (
     <div className="space-y-6">
-      <SquadSection title="المدرب" players={[mockCoach]} isCoach />
+      {/*<SquadSection title="المدرب" players={[mockCoach]} isCoach />*/}
       <SquadSection title="المدافعون" players={mockSquad.defenders} />
       <SquadSection title="لاعبو الوسط" players={mockSquad.midfielders} />
       <SquadSection title="المهاجمون" players={mockSquad.forwards} />
