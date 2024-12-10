@@ -8,7 +8,7 @@ export interface Team {
   league?: string; 
 }
 
-const division1Teams = [
+export const division1Teams = [
   {
     id: 1,
     name: "الترجي الرياضي",
@@ -137,7 +137,7 @@ const division1Teams = [
   },
 ];
 
-const division2Teams = [
+export const division2Teams = [
   {
     id: 15,
     name: "مستقبل القصرين",
@@ -247,9 +247,3 @@ const division2Teams = [
     league: "division2"
   },
 ];
-
-export const getAllTeams = () => [...division1Teams, ...division2Teams]
-
-export const getTeamBySlug = (slug: string) => {
-  return getAllTeams().find(team => team.slug === slug)
-}

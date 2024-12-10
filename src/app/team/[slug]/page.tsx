@@ -1,9 +1,7 @@
-"use client";
-
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShieldHalved } from "@fortawesome/free-solid-svg-icons";
-import { getTeamBySlug } from "@/lib/teams-data";
+import { division1Teams, division2Teams, Team } from "@/lib/teams-data";
 import { SeasonStats } from "@/components/team/season-stats";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -13,6 +11,8 @@ import { StandingsTable } from "@/components/sidebar/standings-table";
 import { TeamStatsCard } from "@/components/team/team-stats-card";
 import { TeamNews } from "@/components/team/team-news";
 import { Transfers } from "@/components/team/transfers";
+import { use } from "react";
+import { getTeamBySlug } from "@/lib/teams";
 
 const teamTabs = [
   { id: "overview", label: "نظرة عامة" },
@@ -25,8 +25,12 @@ const teamTabs = [
   { id: "news", label: "الأخبار" },
 ];
 
-export default function TeamPage({ params }: { params: { slug: string } }) {
-  const team = getTeamBySlug(params.slug);
+export default async function TeamPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const team = await getTeamBySlug(params.slug);
 
   if (!team) {
     notFound();
