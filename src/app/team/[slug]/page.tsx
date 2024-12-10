@@ -12,7 +12,7 @@ import { TeamStatsCard } from "@/components/team/team-stats-card";
 import { TeamNews } from "@/components/team/team-news";
 import { Transfers } from "@/components/team/transfers";
 import { use } from "react";
-import { getTeamBySlug } from "@/lib/teams";
+import { getAllTeams, getTeamBySlug } from "@/lib/teams";
 
 const teamTabs = [
   { id: "overview", label: "نظرة عامة" },
@@ -24,6 +24,14 @@ const teamTabs = [
   { id: "history", label: "التاريخ" },
   { id: "news", label: "الأخبار" },
 ];
+
+// This function tells Next.js which pages to statically generate
+export async function generateStaticParams() {
+  const teams = getAllTeams(); // Combine division1Teams and division2Teams
+  return teams.map((team) => ({
+    slug: team.slug,
+  }));
+}
 
 export default async function TeamPage(props: any) {
   const params = await props.params;
