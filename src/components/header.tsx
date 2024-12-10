@@ -23,7 +23,7 @@ export function Header() {
               className="text-lg font-bold text-primary transition-colors hover:text-primary/90"
             >
               <Image
-                src="/feelsports-web/assets/logo/Logo-minimal.png"
+                src="/assets/logo/Logo-minimal.png"
                 alt="FeelSports Logo"
                 width={120}
                 height={40}

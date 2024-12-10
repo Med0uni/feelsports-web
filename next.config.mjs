@@ -1,14 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: 'export', // Keeps your build static for GitHub Pages or other static hosting
+  basePath: '/feelsports-web', // Ensures all routes are prefixed with the base path
+  assetPrefix: '/feelsports-web', // Automatically applies to static assets (e.g., images, JavaScript files)
   images: {
-    domains: ['images.unsplash.com'],
+    unoptimized: true, // Disable image optimization (important for static export)
+    domains: ['images.unsplash.com'], // Add external image domains if required
   },
-  basePath: '/feelsports-web', 
-  assetPrefix: '/feelsports-web',
-  images: {
-    unoptimized: true,
-  }
-}
+};
 
-export default nextConfig
+export default nextConfig;
