@@ -53,7 +53,7 @@ export default async function TeamPage(props: any) {
             <div className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-full bg-surface-2">
               {team.logo ? (
                 <Image
-                  src={team.logo}
+                  src={`/feelsports-web${team.logo}`}
                   alt={team.name}
                   fill
                   className="object-contain p-2"
