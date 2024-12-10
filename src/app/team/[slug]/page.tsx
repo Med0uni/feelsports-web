@@ -25,12 +25,12 @@ const teamTabs = [
   { id: "news", label: "الأخبار" },
 ];
 
-export default async function TeamPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const team = getTeamBySlug(params.slug);
+export default async function TeamPage(props: any) {
+  const params = await props.params;
+
+  console.log("Params:", params); // Debug log to check structure
+
+  const team = await getTeamBySlug(params.slug);
 
   if (!team) {
     notFound();
