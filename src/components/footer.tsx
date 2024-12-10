@@ -117,7 +117,7 @@ export function Footer() {
           <div className="flex items-center gap-6">
             <Link href="/" className="text-2xl font-bold text-primary">
               <Image
-                src="/assets/logo/Logo-full.png"
+                src="/feelsports-web/assets/logo/Logo-full.png"
                 alt="FeelSports Logo"
                 width={120}
                 height={40}

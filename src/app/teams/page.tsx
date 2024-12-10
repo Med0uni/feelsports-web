@@ -13,7 +13,7 @@ function TeamCard({ team }: { team: Team }) {
     >
       <div className="relative h-16 w-16 overflow-hidden rounded-lg">
         <Image
-          src={team.logo}
+          src={`/feelsports-web${team.logo}`}
           alt={team.name}
           layout="fill" // Ensures the image fills the parent container
           objectFit="contain" // Preserves aspect ratio within the container
